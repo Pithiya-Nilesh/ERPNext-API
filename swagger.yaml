@@ -111,10 +111,10 @@ paths:
           schema:
             type: string
             items:
-              type: array
+              type: string
               items:
                 type: string
-            example: ""
+            example: '[["customer", "=", "xyz"], ["name", "=", "SO-0001"]]'
           description: Array of filter conditions [["customer", "=", "xyz"], ["name", "=", "SO-0001"]]
         - name: fields 
           in: query
@@ -124,7 +124,7 @@ paths:
               type: string
               items:
                 type: string
-            example: ["*"]
+            example: '["*"]'
           description: use ["*"] to get all field else specify fields name ["customer", "name", "date"]
       responses:
         '200':
@@ -236,7 +236,7 @@ paths:
               type: array
               items:
                 type: string
-            example: ""
+            example: '[["item_code", "=", "item1"], ["item_group", "=", "Products"]]'
           description: Array of filter conditions [["item_code", "=", "item1"], ["item_group", "=", "Products"]]
         - name: fields
           in: query
@@ -246,7 +246,7 @@ paths:
               type: string
               items:
                 type: string
-            example: ""
+            example: '["*"]'
           description: use ["*"] to get all field else specify fields name ["item_code", "item_name", "description", "stock_uom"]
       responses:
         '200':
@@ -285,7 +285,7 @@ paths:
               type: array
               items:
                 type: string
-            example: ""
+            example: '[["item_code", "=", "item1"], ["warehouse", "=", "warehouse"]]'
           description: Array of filter conditions [["item_code", "=", "item1"], ["warehouse", "=", "warehouse"]]
         - name: fields
           in: query
@@ -295,7 +295,7 @@ paths:
               type: string
               items:
                 type: string
-            example: ""
+            example: '["*"]'
           description: use ["*"] to get all field else specify fields name ["item_code", "warehouse", "actual_qty"]
       responses:
         '200':
