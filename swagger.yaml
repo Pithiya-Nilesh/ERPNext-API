@@ -83,6 +83,30 @@ paths:
   #                   type: string
   #                   example: Authentication failed
 
+  /api/resource/Customer:
+    get:
+      summary: Get Customer
+      description: Retrieve a list of Customer
+      tags:
+        - Customer
+      responses:
+        '200':
+          description: Successful retrieval of sales orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    customer:
+                      type: string
+                    
+        '401':
+          description: Unauthorized
+
   /api/resource/Sales Order:
     get:
       summary: Get Sales Orders
@@ -112,8 +136,6 @@ paths:
             type: string
             items:
               type: string
-              items:
-                type: string
             example: '[["customer", "=", "xyz"], ["name", "=", "SO-0001"]]'
           description: Array of filter conditions [["customer", "=", "xyz"], ["name", "=", "SO-0001"]]
         - name: fields 
@@ -231,11 +253,9 @@ paths:
         - name: filters
           in: query
           schema:
-            type: array
+            type: string
             items:
-              type: array
-              items:
-                type: string
+              type: string
             example: '[["item_code", "=", "item1"], ["item_group", "=", "Products"]]'
           description: Array of filter conditions [["item_code", "=", "item1"], ["item_group", "=", "Products"]]
         - name: fields
@@ -280,11 +300,9 @@ paths:
         - name: filters
           in: query
           schema:
-            type: array
+            type: string
             items:
-              type: array
-              items:
-                type: string
+              type: string
             example: '[["item_code", "=", "item1"], ["warehouse", "=", "warehouse"]]'
           description: Array of filter conditions [["item_code", "=", "item1"], ["warehouse", "=", "warehouse"]]
         - name: fields
